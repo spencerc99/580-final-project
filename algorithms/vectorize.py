@@ -14,7 +14,7 @@ def Sentence2Vec():
             '../data/GoogleNews-vectors-negative300.bin', binary=True)
 
     def predict(self, word):
-        if word not in model.vw:
+        if word not in self.model.vw:
             print(f'Word "{word}" not found in word2vec model!')
             return None
         return self.model.wv[word]
