@@ -1,3 +1,3 @@
-unzip russian-troll-twwets-master.zip
-unzip data-society-twitter-usa-data.zip
+unzip russian-troll-tweets-master.zip
+unzip data-society-twitter-user-data.zip
 gunzip GoogleNews-vectors-negative300.bin.gz
