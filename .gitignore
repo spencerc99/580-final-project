@@ -1,0 +1,7 @@
+.env
+**/__pycache__
+**/.DS_Store
+**/.vscode
+data/GoogleNews-*
+data/russian-troll-tweets-master/*
+data/russian-troll-tweets-master*
