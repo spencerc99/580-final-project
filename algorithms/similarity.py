@@ -8,8 +8,6 @@
 import math
 import numpy as np
 import pandas as pd
-from vectorize import Sentence2Vec
-
 
 class HashFunc():
 
