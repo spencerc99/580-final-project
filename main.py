@@ -6,9 +6,12 @@ SAMPLE_PERCENT = 0.05
 
 
 def main():
-    Ks = [1, 2, 3, 4, 5, 6]
-    Ls = [20, 50, 100, 200]
-    alphas = []
+    # Ks = [1, 2, 3, 4, 5, 6]
+    # Ls = [20, 50, 100, 200]
+    # alphas = []
+    Ks = [1]
+    Ls = [20]
+    alphas = [0.01]
     for K in Ks:
         for L in Ls:
             for alpha in alphas:
@@ -18,6 +21,7 @@ def main():
 
 def get_data():
     df = get_bot_tweet_data()
+    print(df)
     num_rows = len(df)
     return df.sample(int(num_rows * SAMPLE_PERCENT)),
 
