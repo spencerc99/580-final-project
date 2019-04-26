@@ -23,7 +23,7 @@ def get_data():
     df = get_bot_tweet_data()
     print(df)
     num_rows = len(df)
-    return df.sample(int(num_rows * SAMPLE_PERCENT)),
+    return df.sample(int(num_rows * SAMPLE_PERCENT))
 
 
 def run_experiment(ace_alg):

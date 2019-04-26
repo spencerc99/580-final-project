@@ -11,8 +11,8 @@ user_df = None
 
 
 def preprocess(tweet):
-    if tweet.language != 'English':
-        return
+    # if tweet.language != 'English':
+        # return
 
     stop_words = set(stopwords.words('english'))
     word_tokens = word_tokenize(tweet)
@@ -36,7 +36,7 @@ def get_bot_tweet_data():
     if bot_df is None:
         bot_df = pd.concat([pd.read_csv(f)
                             for f in glob.glob('data/russian-troll-tweets-master/*.csv')])
-    return bot_df
+    return bot_df[bot_df.language == 'English']
 
 
 def get_normal_tweet_data():
@@ -44,3 +44,4 @@ def get_normal_tweet_data():
     if user_df is None:
         user_df = pd.read_csv(
             "../data/data-society-twitter-user-data/data/gender_classifier_dfe_791531.csv")
+    return user_df

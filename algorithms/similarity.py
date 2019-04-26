@@ -9,8 +9,8 @@ import math
 import numpy as np
 import pandas as pd
 
-class HashFunc():
 
+class HashFunc():
     def __init__(self, vectorizer):
         self.vectorizer = vectorizer
 
@@ -35,8 +35,8 @@ class HashFunc():
     def hash_tweet(self, tweet, K):
         tweet_vector = self.vectorizer.vectorize_tweet(tweet)
         srp_bits = \
-        "".join([str(self.sign_fn(np.random.normal(
-            size=tweet_vector.shape).T.dot(tweet_vector))) for i in range(K)])
+            "".join([str(self.sign_fn(np.random.normal(
+                size=tweet_vector.shape).T.dot(tweet_vector))) for i in range(K)])
         hash_value = int(srp_bits, 2)
         return hash_value
 

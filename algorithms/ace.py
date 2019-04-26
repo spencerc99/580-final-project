@@ -35,7 +35,7 @@ class ACE():
 
         @param D  The dataset represented using a pandas dataframe.
         '''
-        for idx, row in D.iterrows():
+        for _, row in D.iterrows():
             mu_incre = 0
             for j in range(self.L):
                 hash_val = self.hash_funcs.hash_tweet(row, j)
