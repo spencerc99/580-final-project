@@ -3,6 +3,9 @@ import re
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 import string
+import pandas as pd
+
+df = None
 
 
 def preprocess(tweet):
@@ -23,3 +26,11 @@ def preprocess(tweet):
     filtered_tokens = [w for w in word_tokens if not w in stop_words and if not w in string.punctuation]
     # and w not in emoticons
     return filtered_tokens
+
+
+def get_tweet_data():
+    global df
+    if df is None:
+        df = pd.read_csv(
+            "../data/russian-troll-tweets-master/IRAhandle_tweets_1.csv")
+    return df.itertuples()
