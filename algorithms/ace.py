@@ -58,3 +58,4 @@ class ACE():
             score += ((self.arrays[j][hash_val]) / (self.L * 1.0))
 
         return (score <= (self.mu - self.alpha))
+

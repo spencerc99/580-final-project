@@ -8,7 +8,7 @@ SAMPLE_PERCENT = 0.05
 def main():
     Ks = [1, 2, 3, 4, 5, 6]
     Ls = [20, 50, 100, 200]
-    alphas = []
+    alphas = [0.01, 0.05, 0.1, 0.5]
     for K in Ks:
         for L in Ls:
             for alpha in alphas:

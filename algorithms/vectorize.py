@@ -1,5 +1,5 @@
 import gensim
-from utils import preprocess
+from .utils import preprocess
 import numpy as np
 
 
