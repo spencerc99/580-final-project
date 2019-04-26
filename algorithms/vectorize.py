@@ -15,7 +15,7 @@ class Sentence2Vec():
 
     def predict(self, word):
         if word not in self.word_vectors:
-            print(f'Word "{word}" not found in word2vec model!')
+            # print(f'Word "{word}" not found in word2vec model!')
             return None
         return self.word_vectors[word]
 

@@ -37,15 +37,20 @@ class ACE():
         '''
         for _, row in D.iterrows():
             mu_incre = 0
-            for j in range(self.L):
-                hash_val = self.hash_funcs.hash_tweet(row, self.K)
-                self.arrays[j][hash_val] += 1
-                mu_incre += ((2 * self.arrays[j]
-                              [hash_val] + 1) / (self.L * 1.0))
-            self.mu = ((self.n * self.mu) + mu_incre) / ((self.n + 1) * 1.0)
-            self.n += 1
+            try:
+                for j in range(self.L):
+                    hash_val = self.hash_funcs.hash_tweet(row, self.K)
+                    self.arrays[j][hash_val] += 1
+                    mu_incre += ((2 * self.arrays[j]
+                                  [hash_val] + 1) / (self.L * 1.0))
+                self.mu = ((self.n * self.mu) + mu_incre) / \
+                    ((self.n + 1) * 1.0)
+                self.n += 1
+            except:
+                continue
+        print("ACE MEAN:", self.mu)
 
-    def query(self, q):
+    def query(self, q, alpha=None):
         '''
         Queries ACE for anomaly detection.
 
@@ -53,9 +58,10 @@ class ACE():
         @returns  True if q is an anomaly. False otherwise.
         '''
         score = 0
+        if alpha is None:
+            alpha = self.alpha
         for j in range(self.L):
             hash_val = self.hash_funcs.hash_tweet(q, self.K)
             score += ((self.arrays[j][hash_val]) / (self.L * 1.0))
 
-        return (score <= (self.mu - self.alpha))
-
+        return (score <= (self.mu - alpha))

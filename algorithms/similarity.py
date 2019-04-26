@@ -30,13 +30,12 @@ class HashFunc():
         return 1 - math.acos(numerator / denominator) / math.pi
 
     def sign_fn(self, num):
-        return num > 0
+        return int(num > 0)
 
     def hash_tweet(self, tweet, K):
         tweet_vector = self.vectorizer.vectorize_tweet(tweet)
-        srp_bits = \
-            "".join([str(self.sign_fn(np.random.normal(
-                size=tweet_vector.shape).T.dot(tweet_vector))) for i in range(K)])
+        srp_bits = "".join([str(self.sign_fn(np.random.normal(
+            size=tweet_vector.shape).T.dot(tweet_vector))) for i in range(K)])
         hash_value = int(srp_bits, 2)
         return hash_value
 

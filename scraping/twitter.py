@@ -107,14 +107,15 @@ def gather_data(user_ids, start_line=0):
 def gather_data_by_tweet_ids(tweet_ids, start_line=0):
     global sleep_backoff
     with open("../data/normal_user_data", "w") as f:
-        f.write("tweet_id,content\n")
+        f.write("tweet_id,content,language\n")
         for i, tweet_id in enumerate(tweet_ids[start_line:]):
             tweet_id = tweet_id.strip()
             print(f"gathering data for tweet {i}: {tweet_id}")
             try:
                 data = get_tweet_by_id(tweet_id)
-                processed_content = re.sub('\n', '', data.text)
-                f.write(f"{tweet_id},{processed_content}\n")
+                processed_content = re.sub(
+                    ',', ' ', re.sub('\n', ' ', data.text))
+                f.write(f"{tweet_id},{processed_content},{data.lang}\n")
             except tweepy.error.TweepError as e:
                 print(e)
                 if type(e) is tweepy.error.RateLimitError:

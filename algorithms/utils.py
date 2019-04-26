@@ -43,5 +43,5 @@ def get_normal_tweet_data():
     global user_df
     if user_df is None:
         user_df = pd.read_csv(
-            "../data/data-society-twitter-user-data/data/gender_classifier_dfe_791531.csv")
-    return user_df
+            "data/normal_user_data")
+    return user_df[user_df.language == 'en']
