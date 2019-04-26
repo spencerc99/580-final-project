@@ -23,7 +23,7 @@ def preprocess(tweet):
     # remove emojis from tweet
     # tweet = emoji_pattern.sub(r'', tweet)
     # filter using NLTK library append it to a string
-    filtered_tokens = [w for w in word_tokens if not w in stop_words and if not w in string.punctuation]
+    filtered_tokens = [w for w in word_tokens if not w in stop_words and not w in string.punctuation]
     # and w not in emoticons
     return filtered_tokens
 

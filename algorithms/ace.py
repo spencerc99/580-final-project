@@ -10,6 +10,7 @@
 from array import array
 import pandas as pd
 from .similarity import HashFunc
+from .vectorize import Sentence2Vec
 
 class ACE():
   # Class representation of ACE.
@@ -24,6 +25,7 @@ class ACE():
         self.arrays[j].append(0)
     self.mu = 0
     self.n = 0
+    self.hash_funcs = HashFunc(Sentence2Vec())
 
   def preprocess(self, D):
     '''
