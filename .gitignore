@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .env
 **/__pycache__
 **/.DS_Store
@@ -5,3 +6,7 @@
 data/GoogleNews-*
 data/russian-troll-tweets-master/*
 data/russian-troll-tweets-master*
+**/**/*.zip
+data/**
+**/**/.DS_Store
+**/**/.vscode
