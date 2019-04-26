@@ -32,13 +32,19 @@ def run_experiment(ace_alg):
     data = get_data()
     train, test = train_test_split(data, test_size=0.2)
     ace_alg.preprocess(train)
+    fp = 0
+    tp = 0
+    tn = 0
+    fn = 0
 
     for test_sample in test:
         is_anomaly = ace_alg.query(test_sample)
         if is_anomaly:
             print(f"Sample: {test_sample} is an anomaly")
+            fn += 1
         else:
             print(f"Sample: {test_sample} is not an anomaly")
+            tp += 1
         # print("Sample is actually {anomaly or not anomaly}")
 
 
