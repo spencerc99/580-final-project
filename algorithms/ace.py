@@ -38,7 +38,7 @@ class ACE():
         for idx, row in D.iterrows():
             mu_incre = 0
             for j in range(self.L):
-                hash_val = self.hash_funcs.hash_tweet(row, j)
+                hash_val = self.hash_funcs.hash_tweet(row, self.K)
                 self.arrays[j][hash_val] += 1
                 mu_incre += ((2 * self.arrays[j]
                               [hash_val] + 1) / (self.L * 1.0))
@@ -54,7 +54,7 @@ class ACE():
         '''
         score = 0
         for j in range(self.L):
-            hash_val = self.hash_funcs.hash_tweet(q, j)
+            hash_val = self.hash_funcs.hash_tweet(q, self.K)
             score += ((self.arrays[j][hash_val]) / (self.L * 1.0))
 
         return (score <= (self.mu - self.alpha))
