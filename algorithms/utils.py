@@ -35,7 +35,7 @@ def get_bot_tweet_data():
     global bot_df
     if bot_df is None:
         bot_df = pd.concat([pd.read_csv(f)
-                            for f in glob.glob('..data/russian-troll-tweets-master/*.csv')])
+                            for f in glob.glob('data/russian-troll-tweets-master/*.csv')])
     return bot_df
 
 
