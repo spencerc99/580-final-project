@@ -1,6 +1,6 @@
 # COMP 580 Final Project
 
-initial readme
+To run this, please run `python main.py`
 
 ## Data
 
